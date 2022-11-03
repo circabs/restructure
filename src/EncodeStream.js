@@ -106,8 +106,8 @@ function stringToAscii(string) {
 }
 
 for (let key of Object.getOwnPropertyNames(DataView.prototype)) {
-  if (key.slice(0, 3) === 'set') {
-    let type = key.slice(3).replace('Ui', 'UI');
+  if (key.slice(0, 3) === 'set') {    
+    let type = key.slice(3).replace('Ui', 'UI').replace(/Big/g, '');
     if (type === 'Float32') {
       type = 'Float';
     } else if (type === 'Float64') {

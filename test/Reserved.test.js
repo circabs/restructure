@@ -1,5 +1,8 @@
-import assert from 'assert';
-import {Reserved, uint8, uint16, DecodeStream, EncodeStream} from 'restructure';
+import 'https://deno.land/x/deno_mocha/global.ts'
+
+import { assert } from './dev_deps.ts'
+
+import {Reserved, uint8, uint16, DecodeStream} from '../src/mod.ts'
 
 describe('Reserved', function() {
   it('should have a default count of 1', function() {

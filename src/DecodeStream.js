@@ -51,17 +51,20 @@ DecodeStream.TYPES = {
   UInt16: 2,
   UInt24: 3,
   UInt32: 4,
+  UInt64: 8,
   Int8: 1,
   Int16: 2,
   Int24: 3,
   Int32: 4,
+  Int64: 8,
   Float: 4,
   Double: 8
 };
 
+
 for (let key of Object.getOwnPropertyNames(DataView.prototype)) {
   if (key.slice(0, 3) === 'get') {
-    let type = key.slice(3).replace('Ui', 'UI');
+    let type = key.slice(3).replace('Ui', 'UI').replace(/Big/g, '');
     if (type === 'Float32') {
       type = 'Float';
     } else if (type === 'Float64') {
@@ -83,3 +86,5 @@ for (let key of Object.getOwnPropertyNames(DataView.prototype)) {
     }
   }
 }
+
+

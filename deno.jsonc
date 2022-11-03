@@ -1,0 +1,10 @@
+{
+  "tasks": {
+    "reload": "deno run --reload -A --unstable src/mod.ts",
+    "fixed": "deno run -A --unstable test/FixedString.ts",
+    "numeric": "deno run -A --unstable test/NumericString.ts",
+    "mb": "deno run -A --unstable test/test_mb.ts",
+    "dev": "deno run -A --unstable dev.ts"
+
+  }
+}

@@ -15,3 +15,10 @@ export {VersionedStruct} from './src/VersionedStruct.js';
 export * from './src/utils.js';
 export * from './src/Number.js';
 export * from './src/Pointer.js';
+
+// added
+export * from './src/Base.js'
+export {FixedString} from './src/FixedString.js';
+export {NumericString} from './src/NumericString.js';
+
+

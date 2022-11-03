@@ -1,0 +1,53 @@
+{
+  // Use IntelliSense to learn about possible attributes.
+  // Hover to view descriptions of existing attributes.
+  // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "dev",
+      "request": "launch",      
+      "type": "node",
+      "program": "${workspaceFolder}/dev.ts",
+      "cwd": "${workspaceFolder}",
+      "runtimeExecutable": "deno",
+      "runtimeArgs": [
+        "run",
+        "--inspect-brk",
+        "--allow-all",
+        // "dev.ts"
+      ],
+      "attachSimplePort": 9229
+    },
+    {
+      "name": "test_fixedstring",
+      "request": "launch",      
+      "type": "node",
+      // "program": "${workspaceFolder}/main.ts",
+      "cwd": "${workspaceFolder}",
+      "runtimeExecutable": "deno",
+      "runtimeArgs": [
+        "run",
+        "--inspect-brk",
+        "--allow-all",
+        "test/Fixedstring.test.js"
+      ],
+      "attachSimplePort": 9229
+    },
+    {
+      "name": "test_varbuffer",
+      "request": "launch",      
+      "type": "node",
+      // "program": "${workspaceFolder}/main.ts",
+      "cwd": "${workspaceFolder}",
+      "runtimeExecutable": "deno",
+      "runtimeArgs": [
+        "run",
+        "--inspect-brk",
+        "--allow-all",
+        "test/test_mb.ts"
+      ],
+      "attachSimplePort": 9229
+    }
+  ]
+}

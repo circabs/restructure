@@ -1,19 +1,25 @@
+import 'https://deno.land/x/deno_mocha/global.ts'
+
+import { assert } from './dev_deps.ts'
+
 import {
   uint8,
   uint16, uint16be, uint16le,
   uint24, uint24be, uint24le,
   uint32, uint32be, uint32le,
+  uint64, uint64be, uint64le,
   int8,
   int16, int16be, int16le,
   int24, int24be, int24le,
   int32, int32be, int32le,
+  int64, int64be, int64le,
   float, floatbe, floatle,
   double, doublebe, doublele,
   fixed16, fixed16be, fixed16le,
   fixed32, fixed32be, fixed32le,
   DecodeStream, EncodeStream
-} from 'restructure';
-import assert from 'assert';
+} from '../src/mod.ts'
+
 
 describe('Number', function() {
   describe('uint8', function() {
@@ -120,6 +126,38 @@ describe('Number', function() {
       assert.deepEqual(uint32le.toBuffer(0xffab24bf), new Uint8Array([0xbf, 0x24, 0xab, 0xff]));
     });
   });
+
+  describe('uint64', () =>
+    it('is an alias for uint64be', () => assert.deepEqual(uint64, uint64be))
+  );
+
+  describe('uint64be', function() {
+    it('should decode', function() {
+      const stream = new DecodeStream(new Uint8Array([0xff, 0xee, 0xdd, 0xcc, 0xbb, 0xaa, 0x99, 0x88]));
+      assert.deepEqual(uint64be.decode(stream), 0xffeeddccbbaa9988n);
+    });
+
+    it('should have a size', () => assert.equal(uint64be.size(), 8));
+
+    it('should encode', function() {      
+      assert.deepEqual(uint64be.toBuffer(0xffeeddccbbaa9988n), new Uint8Array([0xff, 0xee, 0xdd, 0xcc, 0xbb, 0xaa, 0x99, 0x88]));
+    });
+  });
+
+  describe('uint64be', function() {
+    it('should decode', function() {
+      const stream = new DecodeStream(new Uint8Array([0xff, 0xee, 0xdd, 0xcc, 0xbb, 0xaa, 0x99, 0x88]));
+      assert.deepEqual(uint64be.decode(stream), 0xffeeddccbbaa9988n);
+    });
+
+    it('should have a size', () => assert.equal(uint64be.size(), 8));
+
+    it('should encode', function() {      
+      assert.deepEqual(uint64be.toBuffer(0xffeeddccbbaa9988n), new Uint8Array([0xff, 0xee, 0xdd, 0xcc, 0xbb, 0xaa, 0x99, 0x88]));
+    });
+  });
+
+
 
   describe('int8', function() {
     it('should decode', function() {

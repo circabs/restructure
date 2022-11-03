@@ -1,5 +1,8 @@
-import assert from 'assert';
-import {Buffer as BufferT, uint8, DecodeStream, EncodeStream} from 'restructure';
+import 'https://deno.land/x/deno_mocha/global.ts'
+
+import { assert } from './dev_deps.ts'
+
+import {Buffer as BufferT, uint8, DecodeStream, EncodeStream} from '../src/mod.ts'
 
 describe('Buffer', function() {
   describe('decode', function() {

@@ -1,5 +1,8 @@
-import assert from 'assert';
-import {Enum, uint8, DecodeStream, EncodeStream} from 'restructure';
+import 'https://deno.land/x/deno_mocha/global.ts'
+
+import { assert } from './dev_deps.ts'
+
+import {Enum, uint8, DecodeStream} from '../src/mod.ts'
 
 describe('Enum', function() {
   const e = new Enum(uint8, ['foo', 'bar', 'baz']);

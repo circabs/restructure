@@ -1,5 +1,9 @@
-import assert from 'assert';
-import {Struct, String as StringT, Pointer, uint8, DecodeStream, EncodeStream} from 'restructure';
+import 'https://deno.land/x/deno_mocha/global.ts'
+
+import { assert, NodeBuffer } from './dev_deps.ts'
+
+
+import {Struct, String as StringT, Pointer, uint8} from '../src/mod.ts'
 
 describe('Struct', function() {
   describe('decode', function() {
@@ -9,7 +13,7 @@ describe('Struct', function() {
         age: uint8
       });
 
-      assert.deepEqual(struct.fromBuffer(Buffer.from('\x05devon\x15')), {
+      assert.deepEqual(struct.fromBuffer(NodeBuffer.from('\x05devon\x15')), {
         name: 'devon',
         age: 21
       });
@@ -25,7 +29,7 @@ describe('Struct', function() {
         return this.canDrink = this.age >= 21;
       };
 
-      assert.deepEqual(struct.fromBuffer(Buffer.from('\x05devon\x20')), {
+      assert.deepEqual(struct.fromBuffer(NodeBuffer.from('\x05devon\x20')), {
         name: 'devon',
         age: 32,
         canDrink: true
@@ -39,7 +43,7 @@ describe('Struct', function() {
         canDrink() { return this.age >= 21; }
       });
 
-      assert.deepEqual(struct.fromBuffer(Buffer.from('\x05devon\x20')), {
+      assert.deepEqual(struct.fromBuffer(NodeBuffer.from('\x05devon\x20')), {
         name: 'devon',
         age: 32,
         canDrink: true
@@ -104,7 +108,7 @@ describe('Struct', function() {
         age: 21
       });
 
-      assert.deepEqual(buf, Buffer.from('\x05devon\x15'));
+      assert.deepEqual(buf, NodeBuffer.from('\x05devon\x15'));
     });
 
     it('should support preEncode hook', function() {
@@ -123,7 +127,7 @@ describe('Struct', function() {
         age: 21
       });
 
-      assert.deepEqual(buf, Buffer.from('\x05devon\x15'));
+      assert.deepEqual(buf, NodeBuffer.from('\x05devon\x15'));
     });
 
     it('should encode pointer data after structure', function() {
@@ -139,7 +143,7 @@ describe('Struct', function() {
         ptr: 'hello'
       });
 
-      assert.deepEqual(buf, Buffer.from('\x05devon\x15\x08\x05hello'));
+      assert.deepEqual(buf, NodeBuffer.from('\x05devon\x15\x08\x05hello'));
     });
   });
 });

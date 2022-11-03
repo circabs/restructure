@@ -1,5 +1,8 @@
-import assert from 'assert';
-import {LazyArray, Pointer, uint8, uint16, DecodeStream, EncodeStream} from 'restructure';
+import 'https://deno.land/x/deno_mocha/global.ts'
+
+import { assert } from './dev_deps.ts'
+
+import {LazyArray, uint8, DecodeStream} from '../src/mod.ts'
 
 describe('LazyArray', function() {
   describe('decode', function() {

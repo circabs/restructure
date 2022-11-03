@@ -1,3 +1,19 @@
+# Forked from Restructure
+
+## Changes
+
+Only utf-8 strings are supprted for encoding and decoding.
+
+Added new types:
+
+### Bigint
+tests = https://github.com/michaelficarra/bigint-serialiser/blob/master/test.js
+### FixedString
+
+### NumericString
+
+
+
 # Restructure
 
 [![Build Status](https://travis-ci.org/devongovett/restructure.svg?branch=master)](https://travis-ci.org/devongovett/restructure)

@@ -88,7 +88,7 @@ function byteLength(string, encoding) {
   switch (encoding) {
     case 'ascii':
       return string.length;
-    case 'utf8':
+    case 'utf8': {
       let len = 0;
       for (let i = 0; i < string.length; i++) {
         let c = string.charCodeAt(i);
@@ -114,6 +114,7 @@ function byteLength(string, encoding) {
         }
       }
       return len;
+    }
     case 'utf16le':
     case 'utf16-le':
     case 'utf16be':

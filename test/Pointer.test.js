@@ -1,5 +1,9 @@
-import assert from 'assert';
-import {Pointer, VoidPointer, uint8, DecodeStream, EncodeStream, Struct} from 'restructure';
+import 'https://deno.land/x/deno_mocha/global.ts'
+
+import { assert } from './dev_deps.ts'
+
+
+import {Pointer, VoidPointer, uint8, DecodeStream, EncodeStream, Struct} from '../src/mod.ts'
 
 describe('Pointer', function() {
   describe('decode', function() {

@@ -1,5 +1,8 @@
-import assert from 'assert';
-import {Boolean, uint8, DecodeStream, EncodeStream} from 'restructure';
+import 'https://deno.land/x/deno_mocha/global.ts'
+
+import { assert, NodeBuffer } from './dev_deps.ts'
+
+import {Boolean, uint8} from '../src/mod.ts'
 
 describe('Boolean', function() {
   describe('decode', function() {

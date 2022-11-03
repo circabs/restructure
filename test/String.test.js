@@ -1,36 +1,40 @@
-import assert from 'assert';
-import {String as StringT, uint8, DecodeStream, EncodeStream} from 'restructure';
+import 'https://deno.land/x/deno_mocha/global.ts'
+
+import { assert, NodeBuffer } from './dev_deps.ts'
+
+
+import {String as StringT, uint8, DecodeStream, EncodeStream} from '../src/mod.ts'
 
 describe('String', function() {
   describe('decode', function() {
     it('should decode fixed length', function() {
       const string = new StringT(7);
-      assert.equal(string.fromBuffer(Buffer.from('testing')), 'testing');
+      assert.equal(string.fromBuffer(NodeBuffer.from('testing')), 'testing');
     });
 
     it('should decode length from parent key', function() {
-      const stream = new DecodeStream(Buffer.from('testing'));
+      const stream = new DecodeStream(NodeBuffer.from('testing'));
       const string = new StringT('len');
       assert.equal(string.decode(stream, {len: 7}), 'testing');
     });
 
     it('should decode length as number before string', function() {
       const string = new StringT(uint8);
-      assert.equal(string.fromBuffer(Buffer.from('\x07testing')), 'testing');
+      assert.equal(string.fromBuffer(NodeBuffer.from('\x07testing')), 'testing');
     });
 
     it('should decode utf8', function() {
       const string = new StringT(4, 'utf8');
-      assert.equal(string.fromBuffer(Buffer.from('🍻')), '🍻');
+      assert.equal(string.fromBuffer(NodeBuffer.from('🍻')), '🍻');
     });
 
     it('should decode encoding computed from function', function() {
       const string = new StringT(4, function() { return 'utf8'; });
-      assert.equal(string.fromBuffer(Buffer.from('🍻')), '🍻');
+      assert.equal(string.fromBuffer(NodeBuffer.from('🍻')), '🍻');
     });
 
     it('should decode null-terminated string and read past terminator', function() {
-      const stream = new DecodeStream(Buffer.from('🍻\x00'));
+      const stream = new DecodeStream(NodeBuffer.from('🍻\x00'));
       const string = new StringT(null, 'utf8');
       assert.equal(string.decode(stream), '🍻');
       assert.equal(stream.pos, 5);
@@ -38,7 +42,7 @@ describe('String', function() {
 
     it('should decode remainder of buffer when null-byte missing', function() {
       const string = new StringT(null, 'utf8');
-      assert.equal(string.fromBuffer(Buffer.from('🍻')), '🍻');
+      assert.equal(string.fromBuffer(NodeBuffer.from('🍻')), '🍻');
     });
   });
 
@@ -82,32 +86,32 @@ describe('String', function() {
   describe('encode', function() {
     it('should encode using string length', function() {
       const string = new StringT(7);
-      assert.deepEqual(string.toBuffer('testing'), Buffer.from('testing'));
+      assert.deepEqual(string.toBuffer('testing'), NodeBuffer.from('testing'));
     });
 
     it('should encode length as number before string', function() {
       const string = new StringT(uint8);
-      assert.deepEqual(string.toBuffer('testing'), Buffer.from('\x07testing'));
+      assert.deepEqual(string.toBuffer('testing'), NodeBuffer.from('\x07testing'));
     });
 
     it('should encode length as number before string utf8', function() {
       const string = new StringT(uint8, 'utf8');
-      assert.deepEqual(string.toBuffer('testing 😜'), Buffer.from('\x0ctesting 😜', 'utf8'));
+      assert.deepEqual(string.toBuffer('testing 😜'), NodeBuffer.from('\x0ctesting 😜', 'utf8'));
     });
 
     it('should encode utf8', function() {
       const string = new StringT(4, 'utf8');
-      assert.deepEqual(string.toBuffer('🍻'), Buffer.from('🍻'));
+      assert.deepEqual(string.toBuffer('🍻'), NodeBuffer.from('🍻'));
     });
 
     it('should encode encoding computed from function', function() {
       const string = new StringT(4, function() { return 'utf8'; });
-      assert.deepEqual(string.toBuffer('🍻'), Buffer.from('🍻'));
+      assert.deepEqual(string.toBuffer('🍻'), NodeBuffer.from('🍻'));
     });
 
     it('should encode null-terminated string', function() {
       const string = new StringT(null, 'utf8');
-      assert.deepEqual(string.toBuffer('🍻'), Buffer.from('🍻\x00'));
+      assert.deepEqual(string.toBuffer('🍻'), NodeBuffer.from('🍻\x00'));
     });
   });
 });

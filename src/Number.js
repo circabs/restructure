@@ -75,3 +75,13 @@ export const fixed16le = new Fixed(16, 'LE');
 export const fixed32be = new Fixed(32, 'BE');
 export const fixed32 = fixed32be;
 export const fixed32le = new Fixed(32, 'LE');
+
+
+export const uint64be = new NumberT('UInt64', 'BE');
+export const uint64 = uint64be;
+export const uint64le = new NumberT('UInt64', 'LE');
+
+
+export const int64be = new NumberT('Int64', 'BE');
+export const int64 = int64be;
+export const int64le = new NumberT('Int64', 'LE');

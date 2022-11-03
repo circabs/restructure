@@ -1,0 +1,17 @@
+{
+  "debug.javascript.usePreview": true,
+  "debug.allowBreakpointsEverywhere": true,
+  "window.zoomLevel": 0,
+  "cmake.configureOnOpen": false,
+  "files.autoSave": "afterDelay",
+  "files.autoSaveDelay": 5,
+  "workbench.editor.closeOnFileDelete": true,   
+  "javascript.updateImportsOnFileMove.enabled": "always",    
+  "editor.fontFamily": "'Fira Code'",    
+  "editor.fontLigatures": true,    
+  "editor.minimap.enabled": false,    
+  "editor.mouseWheelZoom": true,        
+  "deno.enable": true,   
+  "deno.unstable": true, 
+  "deno.lint": true,       
+}

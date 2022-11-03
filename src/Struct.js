@@ -33,7 +33,7 @@ export class Struct extends Base {
 
   _parseFields(stream, res, fields) {
     for (let key in fields) {
-      var val;
+      let val;
       const type = fields[key];
       if (typeof type === 'function') {
         val = type.call(res, res);
