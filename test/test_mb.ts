@@ -1,5 +1,3 @@
-import { ConnectionInfo } from 'file:///E:/deno-schema/r-schema/mb/mb.types.ts'
-
 import * as r from '../src/mod.ts'
 
 const structPathSend = new r.Struct({
