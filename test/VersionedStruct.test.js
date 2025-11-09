@@ -1,8 +1,7 @@
-import 'https://deno.land/x/deno_mocha/global.ts'
+import assert from 'node:assert'
+import { describe, it } from '@std/testing/bdd'
 
-import { assert, Buffer } from './dev_deps.ts'
-
-import {VersionedStruct, String as StringT, Pointer, uint8, DecodeStream} from '../src//mod.ts';
+import {VersionedStruct, String as StringT, Pointer, uint8, DecodeStream} from '../src/mod.ts';
 
 describe('VersionedStruct', function() {
   describe('decode', function() {

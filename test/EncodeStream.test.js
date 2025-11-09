@@ -1,6 +1,7 @@
-import 'https://deno.land/x/deno_mocha/global.ts'
+import assert from 'node:assert'
+import { describe, it } from '@std/testing/bdd'
 
-import { assert, NodeBuffer } from './dev_deps.ts'
+import { Buffer } from 'node:buffer'
 
 import {EncodeStream} from '../src/mod.ts'
 
@@ -59,7 +60,7 @@ describe('EncodeStream', function() {
   describe('writeString', function() {
     // NodeBUffer uses utf8 only and as default
     it('should encode ascii by default', function() {
-      const expected = NodeBuffer.from('some text');
+      const expected = Buffer.from('some text');
       const stream = new EncodeStream(new Uint8Array(expected.length));
       stream.writeString('some text');
       assert.deepEqual(stream.buffer, expected);
@@ -67,7 +68,7 @@ describe('EncodeStream', function() {
 
         // not support by web/deno
     // it('should encode ascii', function() {
-    //   const expected = NodeBuffer.from('some text', 'ascii');
+    //   const expected = Buffer.from('some text', 'ascii');
     //   const stream = new EncodeStream(new Uint8Array(expected.length));
     //   stream.writeString('some text', 'ascii');
     //   assert.deepEqual(stream.buffer, expected);
@@ -75,7 +76,7 @@ describe('EncodeStream', function() {
 
         // not support by web/deno
     it('should encode utf8', function() {
-      const expected = NodeBuffer.from('unicode! 👍', 'utf8');
+      const expected = Buffer.from('unicode! 👍', 'utf8');
       const stream = new EncodeStream(new Uint8Array(expected.length));
       stream.writeString('unicode! 👍', 'utf8');
       assert.deepEqual(stream.buffer, expected);
@@ -83,7 +84,7 @@ describe('EncodeStream', function() {
 
         // not support by web/deno
     // it('should encode utf16le', function() {
-    //   const expected = NodeBuffer.from('unicode! 👍', 'utf16le');
+    //   const expected = Buffer.from('unicode! 👍', 'utf16le');
     //   const stream = new EncodeStream(new Uint8Array(expected.length));
     //   stream.writeString('unicode! 👍', 'utf16le');
     //   assert.deepEqual(stream.buffer, expected);
@@ -91,7 +92,7 @@ describe('EncodeStream', function() {
 
         // not support by web/deno
     // it('should encode ucs2', function() {
-    //   const expected = NodeBuffer.from('unicode! 👍', 'ucs2');
+    //   const expected = Buffer.from('unicode! 👍', 'ucs2');
     //   const stream = new EncodeStream(new Uint8Array(expected.length));
     //   stream.writeString('unicode! 👍', 'ucs2');
     //   assert.deepEqual(stream.buffer, expected);
@@ -99,7 +100,7 @@ describe('EncodeStream', function() {
 
         // not support by web/deno
     // it('should encode utf16be', function() {
-    //   const expected = NodeBuffer.from('unicode! 👍', 'utf16le');
+    //   const expected = Buffer.from('unicode! 👍', 'utf16le');
     //   for (let i = 0, end = expected.length - 1; i < end; i += 2) {
     //     const byte = expected[i];
     //     expected[i] = expected[i + 1];

@@ -1,18 +1,66 @@
 {
-  "version": "2",
-  "remote": {
-    "https://cdn.skypack.dev/-/assertion-error@v1.1.0-kNvqltoxcdROsufUrL09/dist=es2019,mode=imports/optimized/assertion-error.js": "fb392c145699a7beacbabe94b21ee5d0219707929450fffbb18eb83b8318c818",
-    "https://cdn.skypack.dev/-/chai@v4.3.4-4LD1LjgHWVQjvyMFe7sm/dist=es2019,mode=imports/optimized/chai.js": "2d517f26a740a2c43a158c510ba0c97b1743f1825022583234f7f3b8ec6b7599",
-    "https://cdn.skypack.dev/-/chai@v4.3.4-4LD1LjgHWVQjvyMFe7sm/dist=es2019,mode=types/index.d.ts": "b6c73080490a06c472c0f05afba3b564b170f39bbaeca57d0b60a6bcd98a840c",
-    "https://cdn.skypack.dev/-/check-error@v1.0.2-pv7N1FcwI8awT920b4E0/dist=es2019,mode=imports/optimized/check-error.js": "c00358ede04680f37b081564d88b9457e9812bb3c5c7effc90acb090f3bd73f4",
-    "https://cdn.skypack.dev/-/deep-eql@v3.0.1-EVT6yn6LFH7vvQx4YnOu/dist=es2019,mode=imports/optimized/deep-eql.js": "e8a3877f0ee43db99f1b903a8b527c57827fe2753a0f0fd560563aa2e435a0d3",
-    "https://cdn.skypack.dev/-/get-func-name@v2.0.0-scW92yE6OFNJbvjxk2uF/dist=es2019,mode=imports/optimized/get-func-name.js": "8926a16a678d5ca12cae705fa8a5be600aaf5355e601d34575f1bd9af64a170c",
-    "https://cdn.skypack.dev/-/pathval@v1.1.1-4hf44tKt2vdiXpyywiwN/dist=es2019,mode=imports/optimized/pathval.js": "778f821f97d08e946a894e3b94635a63121d8bd5000aeb3d00785318d5ed32de",
-    "https://cdn.skypack.dev/-/type-detect@v4.0.8-3tmjjwwFw2jHiLYy7SbM/dist=es2019,mode=imports/optimized/type-detect.js": "eb7ac639d3de6a0b64aaf9032a5b01ab79afb7c768cc02c07956613ecbd0bd32",
-    "https://cdn.skypack.dev/chai@4.3.4?dts": "19489c45018b0bcfb63455624ade9adf84e2a3c99a08379160d90763ba7e3f41",
-    "https://deno.land/std/encoding/hex.ts": "ffbce6a0261248fe76869295809d0507d3d424f277998543abc86c82e5b10405",
-    "https://deno.land/std/node/_utils.ts": "223d84e897c452816915efeab8e564e314d9f3f6e0a4b8a661ffa82f1162e6b9",
-    "https://deno.land/std/node/buffer.ts": "a6a3beaab8f1e09d994c6dc5503fb613116450fb492b2735f700accdd8acdfcf",
-    "https://deno.land/std@0.163.0/encoding/base64.ts": "c57868ca7fa2fbe919f57f88a623ad34e3d970d675bdc1ff3a9d02bba7409db2"
+  "version": "5",
+  "specifiers": {
+    "jsr:@std/assert@^1.0.15": "1.0.15",
+    "jsr:@std/data-structures@^1.0.9": "1.0.9",
+    "jsr:@std/fs@^1.0.19": "1.0.19",
+    "jsr:@std/internal@^1.0.10": "1.0.12",
+    "jsr:@std/internal@^1.0.12": "1.0.12",
+    "jsr:@std/path@^1.1.1": "1.1.2",
+    "jsr:@std/path@^1.1.2": "1.1.2",
+    "jsr:@std/testing@^1.0.16": "1.0.16",
+    "npm:@types/node@*": "24.2.0"
+  },
+  "jsr": {
+    "@std/assert@1.0.15": {
+      "integrity": "d64018e951dbdfab9777335ecdb000c0b4e3df036984083be219ce5941e4703b",
+      "dependencies": [
+        "jsr:@std/internal@^1.0.12"
+      ]
+    },
+    "@std/data-structures@1.0.9": {
+      "integrity": "033d6e17e64bf1f84a614e647c1b015fa2576ae3312305821e1a4cb20674bb4d"
+    },
+    "@std/fs@1.0.19": {
+      "integrity": "051968c2b1eae4d2ea9f79a08a3845740ef6af10356aff43d3e2ef11ed09fb06",
+      "dependencies": [
+        "jsr:@std/path@^1.1.1"
+      ]
+    },
+    "@std/internal@1.0.12": {
+      "integrity": "972a634fd5bc34b242024402972cd5143eac68d8dffaca5eaa4dba30ce17b027"
+    },
+    "@std/path@1.1.2": {
+      "integrity": "c0b13b97dfe06546d5e16bf3966b1cadf92e1cc83e56ba5476ad8b498d9e3038",
+      "dependencies": [
+        "jsr:@std/internal@^1.0.10"
+      ]
+    },
+    "@std/testing@1.0.16": {
+      "integrity": "a917ffdeb5924c9be436dc78bc32e511760e14d3a96e49c607fc5ecca86d0092",
+      "dependencies": [
+        "jsr:@std/assert",
+        "jsr:@std/data-structures",
+        "jsr:@std/fs",
+        "jsr:@std/internal@^1.0.12",
+        "jsr:@std/path@^1.1.2"
+      ]
+    }
+  },
+  "npm": {
+    "@types/node@24.2.0": {
+      "integrity": "sha512-3xyG3pMCq3oYCNg7/ZP+E1ooTaGB4cG8JWRsqqOYQdbWNY4zbaV0Ennrd7stjiJEFZCaybcIgpTjJWHRfBSIDw==",
+      "dependencies": [
+        "undici-types"
+      ]
+    },
+    "undici-types@7.10.0": {
+      "integrity": "sha512-t5Fy/nfn+14LuOc2KNYg75vZqClpAiqscVvMygNnlsHBFpSXdJaYtXMcdNLpl/Qvc3P2cB3s6lOV51nqsFq4ag=="
+    }
+  },
+  "workspace": {
+    "dependencies": [
+      "jsr:@std/testing@^1.0.16"
+    ]
   }
 }

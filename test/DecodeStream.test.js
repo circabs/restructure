@@ -1,6 +1,7 @@
-import 'https://deno.land/x/deno_mocha/global.ts'
+import assert from 'node:assert'
+import { describe, it } from '@std/testing/bdd'
 
-import { assert, NodeBuffer } from './dev_deps.ts'
+import { Buffer } from 'node:buffer'
 
 import {DecodeStream} from '../src/mod.ts'
 
@@ -48,43 +49,43 @@ describe('DecodeStream', function() {
   });
 
   describe('readString', function() {
-    // NodeBUffer uses utf8 only and as default
+    // Buffer uses utf8 only and as default
     it('should decode ascii by default - ', function() {
-      const buf = NodeBuffer.from('some text');
+      const buf = Buffer.from('some text');
       const stream = new DecodeStream(buf);
       assert.equal(stream.readString(buf.length), 'some text');
     });
 
     // not support by web/deno
     // it('should decode ascii', function() {
-    //   const buf = NodeBuffer.from(new TextDecoder().decode('some text', 'ascii'));
+    //   const buf = Buffer.from(new TextDecoder().decode('some text', 'ascii'));
     //   const stream = new DecodeStream(buf);
     //   assert.equal(stream.readString(buf.length, 'ascii'), 'some text');
     // });
 
     it('should decode utf8', function() {
-      const buf = NodeBuffer.from('unicode! 👍', 'utf8');
+      const buf = Buffer.from('unicode! 👍', 'utf8');
       const stream = new DecodeStream(buf);
       assert.equal(stream.readString(buf.length, 'utf8'), 'unicode! 👍');
     });
 
       // not support by web/deno
     // it('should decode utf16le', function() {
-    //   const buf = NodeBuffer.from('unicode! 👍', 'utf16le');
+    //   const buf = Buffer.from('unicode! 👍', 'utf16le');
     //   const stream = new DecodeStream(buf);
     //   assert.equal(stream.readString(buf.length, 'utf16le'), 'unicode! 👍');
     // });
 
       // not support by web/deno
     // it('should decode ucs2', function() {
-    //   const buf = NodeBuffer.from('unicode! 👍', 'ucs2');
+    //   const buf = Buffer.from('unicode! 👍', 'ucs2');
     //   const stream = new DecodeStream(buf);
     //   assert.equal(stream.readString(buf.length, 'ucs2'), 'unicode! 👍');
     // });
 
       // not support by web/deno
     // it('should decode utf16be', function() {
-    //   const buf = NodeBuffer.from('unicode! 👍', 'utf16le');
+    //   const buf = Buffer.from('unicode! 👍', 'utf16le');
     //   for (let i = 0, end = buf.length - 1; i < end; i += 2) {
     //     const byte = buf[i];
     //     buf[i] = buf[i + 1];

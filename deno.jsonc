@@ -1,9 +1,13 @@
 {
   "tasks": {
-    "reload": "deno run --reload -A --unstable src/mod.ts",    
-    "mb": "deno run -A --unstable test/test_mb.ts",
-    "dev": "deno run -A --unstable dev.ts",
+    "reload": "deno cache --reload  src/mod.ts", 
+    "mod": "deno run -A test/mod.test.ts",   
+    "mb": "deno run -A  test/test_mb.ts",
+    "dev": "deno run -A  dev.ts",
     "test": "deno test"
-
-  }
+  },
+  "imports": {
+    "@std/testing": "jsr:@std/testing@^1.0.16"
+  },
+  "nodeModulesDir": "auto"
 }

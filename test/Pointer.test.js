@@ -1,6 +1,6 @@
-import 'https://deno.land/x/deno_mocha/global.ts'
+import assert from 'node:assert'
+import { describe, it } from '@std/testing/bdd'
 
-import { assert } from './dev_deps.ts'
 
 
 import {Pointer, VoidPointer, uint8, DecodeStream, EncodeStream, Struct} from '../src/mod.ts'

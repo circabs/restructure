@@ -1,6 +1,6 @@
-import 'https://deno.land/x/deno_mocha/global.ts'
+import assert from 'node:assert'
+import { describe, it } from '@std/testing/bdd'
 
-import { assert, NodeBuffer } from './dev_deps.ts'
 
 import {Boolean, uint8} from '../src/mod.ts'
 

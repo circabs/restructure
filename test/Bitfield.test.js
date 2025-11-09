@@ -1,6 +1,7 @@
-import 'https://deno.land/x/deno_mocha/global.ts'
+import assert from 'node:assert'
+import { describe, it } from '@std/testing/bdd'
 
-import { assert, NodeBuffer } from './dev_deps.ts'
+import { Buffer } from 'node:buffer'
 
 import {Bitfield, uint8} from '../src/mod.ts'
 
@@ -27,6 +28,6 @@ describe('Bitfield', function() {
 
   it('should encode', function() {
     let buffer = bitfield.toBuffer({Jack: true, Kack: false, Lack: false, Mack: true, Nack: true, Oack: false, Pack: true, Quack: true});
-    assert.deepEqual(buffer, NodeBuffer.from([JACK | MACK | PACK | NACK | QUACK]));
+    assert.deepEqual(buffer, Buffer.from([JACK | MACK | PACK | NACK | QUACK]));
   });
 });

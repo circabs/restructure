@@ -1,6 +1,5 @@
-import 'https://deno.land/x/deno_mocha/global.ts'
-
-import { assert } from './dev_deps.ts'
+import assert from 'node:assert'
+import { describe, it } from '@std/testing/bdd'
 
 import {LazyArray, uint8, DecodeStream} from '../src/mod.ts'
 

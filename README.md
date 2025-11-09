@@ -2,6 +2,8 @@
 
 ## Changes
 
+Deno only tested
+
 Only utf-8 strings are supprted for encoding and decoding.
 
 Added new types:
