@@ -30,7 +30,7 @@
         "run",
         "--inspect-brk",
         "--allow-all",
-        "test/Fixedstring.test.js"
+        "tests/Fixedstring.tests.js"
       ],
       "attachSimplePort": 9229
     },
@@ -45,7 +45,7 @@
         "run",
         "--inspect-brk",
         "--allow-all",
-        "test/test_mb.ts"
+        "tests/test_mb.ts"
       ],
       "attachSimplePort": 9229
     }

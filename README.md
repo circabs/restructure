@@ -9,7 +9,7 @@ Only utf-8 strings are supprted for encoding and decoding.
 Added new types:
 
 ### Bigint
-tests = https://github.com/michaelficarra/bigint-serialiser/blob/master/test.js
+tests = https://github.com/michaelficarra/bigint-serialiser/blob/master/tests.js
 ### FixedString
 
 ### NumericString
